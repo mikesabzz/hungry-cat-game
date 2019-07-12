@@ -1,0 +1,83 @@
+header {
+    background-color: aqua;
+    text-align: center;
+    border: red solid 4px;
+}
+.instruction {
+    background-color: palegreen;
+    text-align: center;
+    border: red solid 4px;
+    padding: 30px;
+    padding-bottom: 200px;
+}
+input[type="submit"] {
+    background: red;
+    color: white;
+}
+.button {
+    font-size: 30px;
+    color: red;
+}
+
+.board {
+    height: 500px;
+    width: 1100px;
+    background-color: lime;
+    position: relative;
+}
+
+.cat {
+    height: 100px;
+    width: 100px;
+    background-color: grey;
+    position: absolute;
+    transition: all 0s;
+}
+
+.dog {
+    height: 100px;
+    width: 100px;
+    background-color: brown;
+    position: absolute;
+    border-radius: 50%;
+    transition: all 1s;
+    /* animation: 7s linear infinite backAndForth; */
+}
+
+
+.fish {
+    height: 50px;
+    width: 50px;
+    background-color:orange;
+    position: absolute;
+    border-radius: 25%; 
+}
+
+
+.wall {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    position: absolute;
+}
+
+
+.level-footer {
+    position: absolute;
+    bottom: 10;
+    left: 20;
+    padding-bottom: 1rem;
+    display: flex;
+    border: 1px solid red;
+  }
+  
+  .level-nav li {
+    display: inline-block;
+  }
+  
+  .level-nav a {
+    display: flex;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    padding: 1rem;
+  }

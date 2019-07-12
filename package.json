@@ -1,0 +1,28 @@
+{
+  "name": "cat-game",
+  "version": "1.0.0",
+  "description": "json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikesabzz/cat-game.git"
+  },
+  "author": "Michael Sabzevari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikesabzz/cat-game/issues"
+  },
+  "homepage": "https://github.com/mikesabzz/cat-game#readme",
+  "keywords": [
+    "cat",
+    "game"
+  ],
+  "devDependencies": {
+    "eslint": "^6.0.1"
+  }
+
+}
