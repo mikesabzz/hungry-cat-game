@@ -1,85 +1,201 @@
-/*
+const board = document.querySelector('.board')
+const scoreElement = document.querySelector('.js-score')
+let score = 0
 
-Cat Game: Level Two
-
-*/
-
-//create cat
+const fishes = [
+    { x: 5, y: 2 },
+    { x: 8, y: 3 },
+    { x: 1, y: 4 },
+    { x: 1, y: 1 }
+]
 const cat = { x: 0, y: 0 }
-
-//create dog
 const dogs = [
     { x: 3, y: 2 },
-    { x: 1, y: 4 },
-    { x: 8, y: 0 },
-    { x: 10, y: 4 }
+    { x: 2, y: 2 },
+    { x: 3, y: 3 },
+    { x: 4, y: 2 }
 ]
-
-
-//create Fish
-const fishes = [
-    { x: 6, y: 1 },
-    { x: 8, y: 3 },
-    { x: 2, y: 1 }
-]
-
-//create walls
 const walls = [
-    { x: 5, y: 2 },
-    { x: 7, y: 4 }
+    { x: 2, y: 2 },
+    { x: 7, y: 4 },
+    { x: 7, y: 0 }
 ]
 
-//iterate dog array
-//create dog div
-function runDog() {
-    for (const dog of dogs) {
-        const dogElement = document.createElement('div')
+const increaseScore = function () {
+    if (score < 100) {
+        score += 25
+        scoreElement.innerText = score
+    }
+    if (score === 100) {
+        const winModal = document.getElementById("modal-win");
+        winModal.style.display = "block";    
+    }
+}
+
+window.onload = function () {
+
+    const coordinateInGrid = function (x, y) {
+        if (x < 1 || y < 0 || x > 10 || y > 4) {
+            return false
+        }
+        // if (whereIsTheWall(x, y)) {
+        //     console.log("cannot go here")
+        //     return false 
+        // }
+        return true
+    }
+
+    let dogElement;
+    let dogElementArr = document.getElementsByClassName('dog')
+    for (el in dogs) {
+        dogElement = document.createElement('div')
         dogElement.className = 'dog'
-        dogElement.style.top = (dog.y * 100).toString() + 'px'
-        dogElement.style.left = (dog.x * 100).toString() + 'px'
-        document.querySelector('.board').appendChild(dogElement)
+        board.appendChild(dogElement)
     }
-}
-runDog()
 
-/* iterate fish
-create fish div */
-function fishFood() {
-    for (let i = 0; i < fishes.length; i++) {
-        const fish = fishes[i]
-        const fishElement = document.createElement('div')
-        fishElement.className = 'fish'
-        fishElement.style.left = (fish.x * 100).toString() + 'px'
-        fishElement.style.top = (fish.y * 100).toString() + 'px'
-        document.querySelector('.board').appendChild(fishElement)
+    const moveDog = function (dog) { 
+        const randomX = Math.floor(Math.random() * 3) - 1
+        const randomY = Math.floor(Math.random() * 3) - 1
+        let proposedX = dogs[0].x + randomX
+        let posY = dogs[0].y + randomY
+        const secRandX = Math.floor(Math.random() * 3) - 1
+        const secRandY = Math.floor(Math.random() * 3) - 1
+        let secProposedX = dogs[1].x + secRandX
+        let secPosY = dogs[1].y + secRandY
+        if (coordinateInGrid(proposedX, posY)) {
+            if (coordinateInGrid(secProposedX, secPosY)) {
+              
+                dogs[0].x += randomX
+                dogs[1].x += secRandX
+                dog[0].style.left = dogs[0].x * 100 + 'px'
+                dog[1].style.left = dogs[1].x * 100 + 'px'
+
+                dogs[0].y += randomY
+                dogs[1].y += secRandY
+                dog[0].style.top = dogs[0].y * 100 + 'px'
+                dog[1].style.top = dogs[1].y * 100 + 'px'
+            }
+        }
+        if ((whereIsTheWall(proposedX, posY)) && (whereIsTheWall(secProposedX, secPosY))) {
+            return false
+        }
     }
-}
-fishFood()
 
-//creating the wall div
-function createWall() {
-   for (const wall of walls) {
-       const wallElement = document.createElement('div')
-       wallElement.className = 'wall'
-       wallElement.style.top = (wall.y * 100).toString() + 'px'
-       wallElement.style.left = (wall.x * 100).toString() + 'px'
-       document.querySelector('.board').appendChild(wallElement)
-   } 
-}
-createWall()
+    setInterval(function () {
+        moveDog(dogElementArr)
+    }, 200)
 
-//Making the walls block the way
-const whereIsTheWall = function (x, y) {
-    for (let i = 0; i < walls.length; i++) {
-        const wall = walls[i]
-        if (wall.x === x && wall.y === y) {
+    const moreDogs = function (dog) { 
+        const thirdRandX = Math.floor(Math.random() * 3) - 1
+        const thirdRandY = Math.floor(Math.random() * 3) - 1
+        let thirdProposedX = dogs[2].x + thirdRandX
+        let thirdPosY = dogs[2].y + thirdRandY
+        const fourthRandX = Math.floor(Math.random() * 3) - 1
+        const fourthRandY = Math.floor(Math.random() * 3) - 1
+        let fourthPropX = dogs[3].x + fourthRandX
+        let fourthPosY = dogs[3].y + fourthRandY
+        if (coordinateInGrid(thirdProposedX, thirdPosY)) {
+            if (coordinateInGrid(fourthPropX, fourthPosY)) {
+
+                dogs[2].x += thirdRandX
+                dogs[3].x += fourthRandX
+                dog[2].style.left = dogs[2].x * 100 + 'px'
+                dog[3].style.left = dogs[3].x * 100 + 'px'
+
+                dogs[2].y += thirdRandY
+                dogs[3].y += fourthRandY
+                dog[2].style.top = dogs[2].y * 100 + 'px'
+                dog[3].style.top = dogs[3].y * 100 + 'px'
+            }
+        }
+        if ((whereIsTheWall(thirdProposedX, thirdPosY)) && (whereIsTheWall(fourthPropX, fourthPosY))) {
+            return false
+        }
+    }
+
+    setInterval(function () {
+        moreDogs(dogElementArr)
+    }, 200)
+}
+
+const whereIsDog = function (x, y) {
+    for (let i = 0; i < dogs.length; i++) {
+        const dog = dogs[i]
+        if (dog.x === x && dog.y === y) {
             return true
         }
     }
     return false
 }
 
-//create coordinates
+const eatenByDog = function (x, y) {
+    for (let i = 0; i < dogs.length; i++) {
+        const dog = dogs[i]
+        if (dog.x === x && dog.y === y) {
+              const modal = document.getElementById("modal-lose");
+              modal.style.display = "block";
+          }
+        }
+    }
+
+function renderFish() {
+    const fishElements = document.querySelectorAll('.fish')
+    for (let i = 0; i < fishElements.length; i++) {
+        fishElements[i].remove()
+    }
+
+    for (let i = 0; i < fishes.length; i++) {
+        const fish = fishes[i]
+        const fishEl = document.createElement('div')
+        fishEl.className = 'fish'
+        fishEl.style.left = (fish.x * 100).toString() + 'px'
+        fishEl.style.top = (fish.y * 100).toString() + 'px'
+        document.querySelector('.board').appendChild(fishEl)
+    }
+}
+renderFish()
+
+const whereIsTheFish = function (x, y) {
+    for (let i = 0; i < fishes.length; i++) {
+        const fish = fishes[i]
+        if (fish.x === x && fish.y === y) {
+            return true
+        }
+    }
+    return false
+}
+
+const removeFish = function (x, y) {
+    for (let i = 0; i < fishes.length; i++) {
+        const fish = fishes[i]
+        if (fish.x === x && fish.y === y) {
+            fishes.splice(i, 1)
+            increaseScore()
+        }
+    }
+}
+
+function createWall() {
+    for (const wall of walls) {
+        const wallElement = document.createElement('div')
+        wallElement.className = 'wall'
+        wallElement.style.top = (wall.y * 100).toString() + 'px'
+        wallElement.style.left = (wall.x * 100).toString() + 'px'
+        document.querySelector('.board').appendChild(wallElement)
+    } 
+ }
+ createWall()
+ 
+ const whereIsTheWall = function (x, y) {
+     for (let i = 0; i < walls.length; i++) {
+         const wall = walls[i]
+         if (wall.x === x && wall.y === y) {
+             return true
+         }
+     }
+     return false
+ }
+
 const isCoordinateInGrid = function (x, y) {
     if (x < 0 || y < 0 || x > 10 || y > 4) {
         return false
@@ -87,9 +203,6 @@ const isCoordinateInGrid = function (x, y) {
     return true
 }
 
-
-//create a function where cat can move to
-//needs more work
 const canMoveTo = function (x, y) {
     if(!isCoordinateInGrid(x, y)) {
         return false
@@ -100,48 +213,46 @@ const canMoveTo = function (x, y) {
     return true
 }
 
-
-
-//defining the switches:
-function moveLeft () {
+function moveLeft() {
     if (canMoveTo(cat.x - 1, cat.y)) {
         cat.x -= 1
         moveCatTo(cat.x, cat.y)
     }
 }
 
-function moveRight () {
+function moveRight() {
     if (canMoveTo(cat.x + 1, cat.y)) {
         cat.x += 1
         moveCatTo(cat.x, cat.y)
     }
 }
 
-function moveUp () {
+function moveUp() {
     if (canMoveTo(cat.x, cat.y - 1)) {
         cat.y -= 1
         moveCatTo(cat.x, cat.y)
     }
 }
 
-function moveDown () {
+function moveDown() {
     if (canMoveTo(cat.x, cat.y + 1)) {
         cat.y += 1
         moveCatTo(cat.x, cat.y)
     }
 }
 
-/*Defining the move cat to function
-Work on this function more
-*/
 function moveCatTo(x, y) {
     const catElem = document.querySelector('.cat')
     catElem.style.left = (x * 100) + 'px'
     catElem.style.top = (y * 100) + 'px'
+    if (whereIsTheFish(x, y)) {
+        removeFish(x, y)
+        renderFish()
+    }
+    whereIsDog(x, y);
+    eatenByDog(x, y);      
 }
-console.log(document.body)
 
-//Creating the switches and passing the event object
 document.body.addEventListener('keydown', function (event) {
     const keyCode = event.keyCode
     const arrowKeys = [37, 38, 39, 40]
@@ -162,4 +273,4 @@ document.body.addEventListener('keydown', function (event) {
             moveDown()
             break
     }
-}) 
+})

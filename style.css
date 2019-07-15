@@ -1,83 +1,124 @@
 header {
-    background-color: aqua;
     text-align: center;
-    border: red solid 4px;
-}
+    border: navy outset 6px;
+    animation: colorChange 2s infinite;
+    height: 150px;
+    width: 1100px;
+  }
+@keyframes colorChange {
+      from {background-color: seagreen;}
+      to {background-color: steelblue;}
+    }
+html {
+    background-image: url(images/cat_dog.jpg);
+  }
 .instruction {
-    background-color: palegreen;
+    background-color: grey;
     text-align: center;
+    color: navy;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
     border: red solid 4px;
     padding: 30px;
     padding-bottom: 200px;
-}
+    width: 1045px;
+  }
 input[type="submit"] {
     background: red;
     color: white;
-}
+  }
 .button {
     font-size: 30px;
     color: red;
-}
-
+  }
 .board {
+    display: flex;
     height: 500px;
     width: 1100px;
-    background-color: lime;
     position: relative;
+    background-image: url(images/wood-background-cartoon.png);
+    background-size: 100% 100%;
+    border: navy ridge 6px;
 }
-
 .cat {
     height: 100px;
     width: 100px;
-    background-color: grey;
     position: absolute;
-    transition: all 0s;
+    background-image: url(images/cat-png-gif.gif);
+    background-size: 100% 100%;
 }
-
 .dog {
     height: 100px;
     width: 100px;
-    background-color: brown;
     position: absolute;
-    border-radius: 50%;
     transition: all 1s;
-    /* animation: 7s linear infinite backAndForth; */
+    z-index: 2;
+    background-image: url(images/dog.png.gif);
+    background-size: 100% 100%;
 }
-
-
 .fish {
-    height: 50px;
-    width: 50px;
-    background-color:orange;
+    height: 60px;
+    width: 60px;
     position: absolute;
-    border-radius: 25%; 
+    background-image: url(images/fish.png);
+    background-size: 100% 100%;
 }
-
-
 .wall {
     height: 100px;
     width: 100px;
-    background-color: white;
+    background-image: url(images/cartoon-style-stone-texture.png);
     position: absolute;
+    background-size: 50%
 }
-
-
 .level-footer {
     position: absolute;
     bottom: 10;
     left: 20;
     padding-bottom: 1rem;
-    display: flex;
-    border: 1px solid red;
+    display: flex; 
+    width: 1100px;
+    background-color: #B0CBD2; 
+    border: #2C73D2 6px inset;
+    justify-content: center; 
   }
-  
-  .level-nav li {
+.level-nav li {
     display: inline-block;
   }
-  
-  .level-nav a {
+.level-nav a {
     display: flex;
     text-transform: uppercase;
     letter-spacing: 6px;
     padding: 1rem;
+  }
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    z-index: 2;
+    text-align: center;
+  }
+.modal-lose {
+    background-color: #68BAA6;
+    margin: 15% auto; 
+    border: 10px outset #C34A36;
+    padding: 20px;
+    width: 80%; 
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 40px;
+    color: #005242;
+  }
+.modal-win {
+    background-color: #68BAA6;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 10px outset #C34A36;
+    width: 80%; 
+    font-family: 'Bangers', cursive;
+    font-size: 40px;
+    color: #005242;
   }

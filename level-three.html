@@ -5,40 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="style.css">
-
-
     <title>Cat Game: Level Three</title>
-
 </head>
-
 <body>
-    
     <main class="level-three">
-
-            <header class="level-header">
-                    <div class="container">
-                        <div class="level-header__title">
-                            <a href="index.html">
-                                <h2 class="title">Cat Game:</h2>
-                            </a>
-                            <h4>Level Three</h4>
-                        </div>
-                        <div class="level-header__score">
-                            <h2 class="score js-score">0000</h2>
-                        </div>
-                    </div>
-                </header>
-    
-                <div class="board">
-                    <div class="cat"></div>
+        <header class="level-header">
+            <div class="container">
+                <div class="level-header__title">
+                    <a href="index.html">
+                        <h2 class="title">Cat Game:</h2>
+                    </a>
+                    <h4>Level Three</h4>
                 </div>
+                <div class="level-header__score">
+                    <h2 class="score js-score">0000</h2>
+                </div>
+            </div>
+        </header>
 
+        <div class="board">
+            <div class="cat"></div>
+        </div>
+        <div id="modal-win" class="modal">
+                <div class="modal-win">
+                    <p>Congradulations!!!! This Kitty is full!!!</p>
+                    <p>Would you like to play again?</p>
+                    <a href="level-one.html">Play Again?</a>
+                    <a href="index.html">Home</a>
+                </div>
+            </div>
 
+            <div id="modal-lose" class="modal">
+            <div class="modal-lose">
+                <p>Oh No! Dog ate Cat!</p>
+                <a href="level-three.html">Play Again</a>
+            </div>
+        </div>
 
-
-
-
-    
         <footer class="level-footer">
             <div class="container">
                 <nav class="level-nav">
@@ -50,12 +53,7 @@
                 </nav>
             </div>
         </footer>
-    
-    
     </main>
-
-
     <script type="text/javascript" src="level-three.js"></script>
 </body>
-
 </html>
