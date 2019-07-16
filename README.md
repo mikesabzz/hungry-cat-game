@@ -9,7 +9,7 @@ Object of the game is to get the cat to eat it's meal, without getting eaten by 
 
 Be careful!
 
-## ![] (https://imgur.com/EMJGSsO.png)
+## ![](https://imgur.com/EMJGSsO.png)
 
 ### https://mikesabzz.github.io/cat-game/.
 
