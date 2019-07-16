@@ -64,20 +64,20 @@ window.onload = function () {
         const randomY = Math.floor(Math.random() * 3) - 1
         let proposedX = dogs[0].x + randomX
         let posY = dogs[0].y + randomY
-        const aRandomX = Math.floor(Math.random() * 3) - 1
-        const aRandomY = Math.floor(Math.random() * 3) - 1
-        let aProposedX = dogs[1].x + aRandomX
-        let aPosY = dogs[1].y + aRandomY
+        const secRandX = Math.floor(Math.random() * 3) - 1
+        const secRandY = Math.floor(Math.random() * 3) - 1
+        let secProposedX = dogs[1].x + secRandX
+        let secPosY = dogs[1].y + secRandY
         if (coordinateInGrid(proposedX, posY)) {
-            if (coordinateInGrid(aProposedX, aPosY)) {
+            if (coordinateInGrid(secProposedX, secPosY)) {
 
                 dogs[0].x += randomX
-                dogs[1].x += aRandomX
+                dogs[1].x += secRandX
                 dog[0].style.left = dogs[0].x * 100 + 'px'
                 dog[1].style.left = dogs[1].x * 100 + 'px'
 
                 dogs[0].y += randomY
-                dogs[1].y += aRandomY
+                dogs[1].y += secRandY
                 dog[0].style.top = dogs[0].y * 100 + 'px'
                 dog[1].style.top = dogs[1].y * 100 + 'px'
             }
@@ -87,36 +87,32 @@ window.onload = function () {
         moveDog(dogElementArr)
     }, 200)
 
-    // function getRandomNumber() {        
-    //     return Math.floor(Math.random() * 3) - 1
-    // }
-
     const moreDogs = function (dog) {
-        const randX = Math.floor(Math.random() * 3) - 1
-        const randY = Math.floor(Math.random() * 3) - 1
-        let propX = dogs[2].x + randX
-        let posyY = dogs[2].y + randY
-        const aRandX = Math.floor(Math.random() * 3) - 1
-        const aRandY = Math.floor(Math.random() * 3) - 1
-        let aPropX = dogs[3].x + aRandX
-        let aPosyY = dogs[3].y + aRandY
-        const theRandX = Math.floor(Math.random() * 3) - 1
-        const theRandY = Math.floor(Math.random() * 3) - 1
-        let thePropX = dogs[4].x + theRandX
-        let thePosyY = dogs[4].y + theRandY
-        if (coordinateInGrid(propX, posyY)) {
-            if (coordinateInGrid(aPropX, aPosyY)) {
-                if (coordinateInGrid(thePropX, thePosyY)) {
-                    dogs[2].x += randX
-                    dogs[3].x += aRandX
-                    dogs[4].x += theRandX
+        const thirdRandX = Math.floor(Math.random() * 3) - 1
+        const thirdRandY = Math.floor(Math.random() * 3) - 1
+        let thirdProposedX = dogs[2].x + thirdRandX
+        let thirdPosY = dogs[2].y + thirdRandY
+        const fourthRandX = Math.floor(Math.random() * 3) - 1
+        const fourthRandY = Math.floor(Math.random() * 3) - 1
+        let fourthPropX = dogs[3].x + fourthRandX
+        let fourthPosY = dogs[3].y + fourthRandY
+        const fifthRandX = Math.floor(Math.random() * 3) - 1
+        const fifthRandY = Math.floor(Math.random() * 3) - 1
+        let fifthPropX = dogs[4].x + fifthRandX
+        let fifthPosyY = dogs[4].y + fifthRandY
+        if (coordinateInGrid(thirdProposedX, thirdPosY)) {
+            if (coordinateInGrid(fourthPropX, fourthPosY)) {
+                if (coordinateInGrid(fifthPropX, fifthPosyY)) {
+                    dogs[2].x += thirdRandX
+                    dogs[3].x += fourthRandX
+                    dogs[4].x += fifthRandX
                     dog[2].style.left = dogs[2].x * 100 + 'px'
                     dog[3].style.left = dogs[3].x * 100 + 'px'
                     dog[4].style.left = dogs[4].x * 100 + 'px'
 
-                    dogs[2].y += randY
-                    dogs[3].y += aRandY
-                    dogs[4].y += theRandY
+                    dogs[2].y += thirdRandY
+                    dogs[3].y += fourthRandY
+                    dogs[4].y += fifthRandY
                     dog[2].style.top = dogs[2].y * 100 + 'px'
                     dog[3].style.top = dogs[3].y * 100 + 'px'
                     dog[4].style.top = dogs[4].y * 100 + 'px'

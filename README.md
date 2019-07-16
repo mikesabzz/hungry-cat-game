@@ -1,14 +1,18 @@
 # cat-game
-This is a game about a hungry cat who needs to get to its food before the dog attacks.
+This is a game about a hungry cat who needs to get to its food before the dogs attacks.
 
-Once you reach a score of 50 points, you can move on to the next level.
+Once you reach a score of 100 points, you can move on to the next level.
 
 There are three levels.
 
-If your cat eats the toxic, its dead. Thus, game over!
-
-If your cat gets attacked by the dog, you lose points.
+Object of the game is to get the cat to eat it's meal, without getting eaten by the dogs.
 
 Be careful!
+
+### https://mikesabzz.github.io/cat-game/.
+
+## ![] (https://imgur.com/EMJGSsO.png)
+
+
 
 
