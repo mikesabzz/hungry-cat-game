@@ -38,10 +38,6 @@ window.onload = function () {
         if (x < 1 || y < 0 || x > 10 || y > 4) {
             return false
         }
-        // if (whereIsTheWall(x, y)) {
-        //     console.log("cannot go here")
-        //     return false 
-        // }
         return true
     }
 
@@ -74,10 +70,10 @@ window.onload = function () {
                 dogs[1].y += secRandY
                 dog[0].style.top = dogs[0].y * 100 + 'px'
                 dog[1].style.top = dogs[1].y * 100 + 'px'
+
+                dogCanMoveTo(proposedX, posY)
+                dogCanMoveTo(secProposedX, secPosY)
             }
-        }
-        if ((whereIsTheWall(proposedX, posY)) && (whereIsTheWall(secProposedX, secPosY))) {
-            return false
         }
     }
 
@@ -108,14 +104,18 @@ window.onload = function () {
                 dog[3].style.top = dogs[3].y * 100 + 'px'
             }
         }
-        if ((whereIsTheWall(thirdProposedX, thirdPosY)) && (whereIsTheWall(fourthPropX, fourthPosY))) {
-            return false
-        }
     }
 
     setInterval(function () {
         moreDogs(dogElementArr)
     }, 200)
+
+    const dogCanMoveTo = function (x, y) {
+        if (whereIsTheWall(x, y)) {
+            return false
+        }
+            return true
+    }    
 }
 
 const whereIsDog = function (x, y) {

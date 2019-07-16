@@ -14,6 +14,7 @@ html {
   }
 .instruction {
     background-color: grey;
+    background-size: 100% 100%;
     text-align: center;
     color: navy;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -68,7 +69,8 @@ input[type="submit"] {
     width: 100px;
     background-image: url(images/cartoon-style-stone-texture.png);
     position: absolute;
-    background-size: 50%
+    background-size: 50%;
+    z-index: 3;
 }
 .level-footer {
     position: absolute;
@@ -99,7 +101,7 @@ input[type="submit"] {
     width: 100%;
     height: 100%; 
     overflow: auto; 
-    z-index: 2;
+    z-index: 4;
     text-align: center;
   }
 .modal-lose {
