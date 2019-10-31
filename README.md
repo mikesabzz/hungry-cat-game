@@ -9,7 +9,7 @@ Object of the game is to get the cat to capture its foods, and avoid enemies.
 
 Check it out!
 
-## ![](https://imgur.com/7i0hsGl)
+## ![](https://imgur.com/7i0hsGl.png)
 
 ### https://hungry-cat.netlify.com/.
 
