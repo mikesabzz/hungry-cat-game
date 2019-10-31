@@ -1,5 +1,3 @@
-
-
 function submit () {
     let input = document.querySelector('.form')
     let name = document.createElement('p')

@@ -10,29 +10,32 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="script.js"></script>
 
-    <title>Cat Game</title>
+    <title>Hungry Cat</title>
 </head>
 
 <header>
-    <h1>Welcome!</h1>
-    <h2>To the Cat Game!</h2>
-    <h3>Where you will help a cat get its food, and avoid enemies.</h3>
+    <h1>Hungry Cat</h1>
+    <h2>This cat is hungry and needs your help to get its food, and avoid enemies.</h2>
 </header>
 
 <body>
     <div class="instruction">
-        <p>Object of the game is to walk this hungry cat around, using the arrow keys,
-            to help it get its fishes. Cats love that. You must avoid the
-            dog. Or Else, It's Going To Eat You!</p>
-        <p>You must get 100 points to pass each level!</p>
-        <h5>Avoid the dogs!!!!</h5>
-        <h4>Let's get started with your name.</h4>
-        <input id="name" placeholder="name?">
-        <div class="form">
-                <button onclick='submit()' id="submit">Submit</button>
-        </div>
-        <div>
-            <a class="button" href="level-one.html">Play Game</a>
+        <p>Object of the game is to walk this hungry cat around, using the arrow keys, to help it get its fishes. Cats love that.</p>
+        <p>Avoid the dogs, they are the cat's enemies!</p>
+        <p>Warning: These dogs can jump over the counter</p>
+        <img src='/images/starvingcat.png' alt="starvingCat">
+        <img class="dead-fish" src='/images/deadfish.png' alt="deadFish">
+        <img class="img2" src='/images/bad-dog.png' alt="badDog">
+        <div class="overlap">
+            <p>You must get 100 points to pass each level!</p>
+            <h4>Let's get started with your name.</h4>
+            <input id="name" placeholder="name?">
+            <div class="form">
+                    <button onclick='submit()' id="submit">Submit</button>
+            </div>
+            <div>
+                <a class="button" href="level-one.html">Play Game</a>
+            </div>
         </div>
     </div>
 
