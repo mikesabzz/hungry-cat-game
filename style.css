@@ -1,59 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap');
 header {
     text-align: center;
     border: navy outset 6px;
     animation: colorChange 2s infinite;
     height: 150px;
-    width: 1100px;
+    width: 1140px;
+    font-family: 'Yeon Sung', cursive;
   }
 @keyframes colorChange {
-      from {background-color: seagreen;}
-      to {background-color: steelblue;}
+      from {background-color: rgb(9, 99, 48);}
+      to {background-color: rgb(158, 205, 29);}
     }
 html {
-    background-image: url(images/cat_dog.jpg);
+  background-image: linear-gradient(to left top, #000000, #212020, #3c3b3b, #595857, #777775);
   }
 .instruction {
-    background-color: grey;
+  font-family: 'Yeon Sung', cursive;
+  border: navy outset 6px;
+    background-color: steelblue;
     background-size: 100% 100%;
     text-align: center;
-    color: navy;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
     font-size: 30px;
-    border: red solid 4px;
     padding: 30px;
     padding-bottom: 200px;
-    width: 1045px;
+    width: 1084px;
   }
+.instruction img {
+  display: flex;
+  justify-content: flex-start;
+  align-self: auto;
+}
+.instruction .img2 {
+  margin-left: 84vh;
+  margin-top: -38vh;
+  margin-bottom: 10vh;
+}
+.instruction .dead-fish{
+  margin-left: 50vh;
+  margin-top: -33vh;
+}
 input[type="submit"] {
     background: red;
     color: white;
   }
 .button {
     font-size: 30px;
-    color: red;
+    color: navy;
+  }
+  .overlap{
+    margin-top: -47vh;
   }
 .board {
     display: flex;
-    height: 500px;
-    width: 1100px;
+    height: 540px;
+    width: 1140px;
     position: relative;
-    background-image: url(images/wood-background-cartoon.png);
+    background-image: url(images/bluefloor.png);
     background-size: 100% 100%;
     border: navy ridge 6px;
 }
 .cat {
-    height: 100px;
-    width: 100px;
+    height: 130px;
+    width: 130px;
     position: absolute;
     background-image: url(images/cat-png-gif.gif);
     background-size: 100% 100%;
+    transition: all 0.3s;
+}
+.left-cat {
+  height: 130px;
+  width: 130px;
+  position: absolute;
+  background-image: url(images/left-cat-png.gif);
+  background-size: 100% 100%;
+  transition: all 0.3s;
 }
 .dog {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     position: absolute;
     transition: all 1s;
-    z-index: 2;
+    z-index: 3;
     background-image: url(images/dog.png.gif);
     background-size: 100% 100%;
 }
@@ -67,22 +95,12 @@ input[type="submit"] {
 .wall {
     height: 100px;
     width: 100px;
-    background-image: url(images/cartoon-style-stone-texture.png);
+    background-image: url(images/counter.jpeg);
     position: absolute;
-    background-size: 50%;
+    background-size: 110%;
+    border: ridge rgb(96, 25, 25) 5px;
     z-index: 3;
 }
-.level-footer {
-    position: absolute;
-    bottom: 10;
-    left: 20;
-    padding-bottom: 1rem;
-    display: flex; 
-    width: 1100px;
-    background-color: #B0CBD2; 
-    border: #2C73D2 6px inset;
-    justify-content: center; 
-  }
 .level-nav li {
     display: inline-block;
   }
@@ -105,22 +123,46 @@ input[type="submit"] {
     text-align: center;
   }
 .modal-lose {
-    background-color: #68BAA6;
-    margin: 15% auto; 
+    background-color: rgb(67, 19, 19);
+    background-image: url(images/lostGame.png);
+    background-size: 100% 100%;
+    margin: 16% auto; 
     border: 10px outset #C34A36;
     padding: 20px;
     width: 80%; 
-    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Yeon Sung', cursive;
     font-size: 40px;
-    color: #005242;
+    color: white;
+    height: 80vh;
   }
+.modal-lose p{
+  display: flex;
+  text-shadow: 5px 2px black;
+}
+.modal-lose a{
+  display: flex;
+  text-shadow: 5px 2px black;
+  color: white;
+}
 .modal-win {
-    background-color: #68BAA6;
+    background-color: rgb(67, 19, 19);
+    background-image: url(images/happyCat.png);
+    background-size: 100% 100%;
     margin: 15% auto; 
     padding: 20px;
     border: 10px outset #C34A36;
     width: 80%; 
+    height: 80vh;
     font-family: 'Bangers', cursive;
     font-size: 40px;
-    color: #005242;
+    color: white
+  }
+  .modal-win p{
+    display: flex;
+    text-shadow: 5px 2px black;
+  }
+  .modal-win a{
+    text-shadow: 5px 2px black;
+    display: flex;
+    color: white;
   }

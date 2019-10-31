@@ -44,24 +44,24 @@ window.onload = function () {
     }
 
     const moveDog = function (dog) { 
-        const randomX = Math.floor(Math.random() * 3) - 1
-        const randomY = Math.floor(Math.random() * 3) - 1
-        let proposedX = dogs[0].x + randomX
-        let posY = dogs[0].y + randomY
-        const secRandX = Math.floor(Math.random() * 3) - 1
-        const secRandY = Math.floor(Math.random() * 3) - 1
-        let secProposedX = dogs[1].x + secRandX
-        let secPosY = dogs[1].y + secRandY
-        if (isCoordinateInGrid(proposedX, posY)) {
-            if (isCoordinateInGrid(secProposedX, secPosY)) {
+        const moveFirstDogAtRandomX = Math.floor(Math.random() * 3) - 1
+        const moveFirstDogAtRandomY = Math.floor(Math.random() * 3) - 1
+        let positionX = dogs[0].x + moveFirstDogAtRandomX
+        let positionY = dogs[0].y + moveFirstDogAtRandomY
+        const moveSecondDogAtRandomX = Math.floor(Math.random() * 3) - 1
+        const moveSecondDogAtRandomY = Math.floor(Math.random() * 3) - 1
+        let secondPositionX = dogs[1].x + moveSecondDogAtRandomX
+        let secondPositionY = dogs[1].y + moveSecondDogAtRandomY
+        if (isCoordinateInGrid(positionX, positionY)) {
+            if (isCoordinateInGrid(secondPositionX, secondPositionY)) {
               
-                dogs[0].x += randomX
-                dogs[1].x += secRandX
+                dogs[0].x += moveFirstDogAtRandomX
+                dogs[1].x += moveSecondDogAtRandomX
                 dog[0].style.left = dogs[0].x * 100 + 'px'
                 dog[1].style.left = dogs[1].x * 100 + 'px'
 
-                dogs[0].y += randomY
-                dogs[1].y += secRandY
+                dogs[0].y += moveFirstDogAtRandomY
+                dogs[1].y += moveSecondDogAtRandomY
                 dog[0].style.top = dogs[0].y * 100 + 'px'
                 dog[1].style.top = dogs[1].y * 100 + 'px'
             }
@@ -147,7 +147,7 @@ function moveLeft() {
     if (canMoveTo(cat.x - 1, cat.y)) {
         cat.x -= 1
         moveCatTo(cat.x, cat.y)
-    }
+    }    
 }
 
 function moveRight() {
@@ -171,8 +171,8 @@ function moveDown() {
     }
 }
 
+const catElem = document.querySelector('.cat')
 function moveCatTo(x, y) {
-    const catElem = document.querySelector('.cat')
     catElem.style.left = (x * 100) + 'px'
     catElem.style.top = (y * 100) + 'px'
     if (whereIsTheFish(x, y)) {
@@ -183,24 +183,37 @@ function moveCatTo(x, y) {
     eatenByDog(x, y);
 }
 
+const newCat = document.createElement('div')
+newCat.classList.add('left-cat')
+function newCatFace(){
+    newCat.style.left = (cat.x * 100) + 'px'
+    newCat.style.top = (cat.y * 100) + 'px'
+}
+
 document.body.addEventListener('keydown', function (event) {
     const keyCode = event.keyCode
     const arrowKeys = [37, 38, 39, 40]
     if (arrowKeys.includes(keyCode)) {
         event.preventDefault()
     }
+    
     switch (keyCode) {
         case 37:
-            moveLeft()
+            moveLeft() 
+            catElem.replaceWith(newCat)
             break
         case 38:
             moveUp()
+            newCat.replaceWith(catElem)
             break
         case 39:
             moveRight()
+            newCat.replaceWith(catElem)
             break
         case 40:
             moveDown()
+            newCat.replaceWith(catElem)
             break
     }
+    newCatFace()
 })
