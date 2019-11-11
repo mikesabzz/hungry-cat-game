@@ -5,7 +5,7 @@ Once you reach a score of 100 points, move on to the next level.
 
 There are three levels.
 
-Object of the game is to get the cat to capture its foods, and avoid enemies.
+Object of the game is to help the cat capture its foods, and avoid enemies.
 
 Check it out!
 
