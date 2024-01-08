@@ -24,22 +24,17 @@ html {
     font-size: 30px;
     padding: 30px;
     padding-bottom: 200px;
-    height: 100%;
+    height: auto;
     width: 1084px;
   }
-.instruction img {
-  display: flex;
-  justify-content: flex-start;
-  align-self: auto;
+.instruction .good-cat {
+  margin-right: auto;
 }
-.instruction .img2 {
-  margin-left: 84vh;
-  margin-top: -38vh;
-  margin-bottom: 10vh;
+.instruction .dead-fish {
+  margin: 0 auto;
 }
-.instruction .dead-fish{
-  margin-left: 50vh;
-  margin-top: -33vh;
+.instruction .bad-dog {
+  margin-left: auto; 
 }
 input[type="submit"] {
     background: red;
